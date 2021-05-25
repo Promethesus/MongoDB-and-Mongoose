@@ -18,7 +18,7 @@ var createAndSavePerson = function(done) {
   let jeremy = new Person({name:'Jeremy', age: 29, favoriteFoods: ['stake', 'ice cream']});
 
   jeremy.save(function(err, data) {
-    if (err) return console.error(err);
+    if (err) return console.log(err);
     done(null, data);
   });
 };
@@ -27,15 +27,15 @@ var createAndSavePerson = function(done) {
 
 const createManyPeople = (arrayOfPeople, done) => {
   Person.create(arrayOfPeople, function(err, people){
-    if (err) return (error);
+    if (err) return console.log(err);
     done(null, people);
   })
 };
 
 const findPeopleByName = (personName, done) => {
-  Person.find(personName, function (err, docs) {
-    if (err) return (error);
-    done(null, data);
+  Person.find({name: personName}, function (err, person) {
+    if (err) return console.log(error);
+    done(null, person);
   })
 };
 
